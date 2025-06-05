@@ -11,8 +11,7 @@ services:
       update_config:
         parallelism: 2
         delay: 15s
-    build:
-      context: .
+      image: yommexg/node-docker:latest
       args:
         NODE_ENV: production
     environment:
