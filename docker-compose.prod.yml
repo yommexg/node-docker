@@ -4,14 +4,10 @@ services:
     ports:
       - "80:80"
   node-app:
-    image: yommexg/node-docker:latest
-    deploy:
-      replicas: 8
-      restart_policy:
-        condition: any
-      update_config:
-        parallelism: 2
-        delay: 15s
+    build:
+      context: .
+      args:
+        NODE_ENV: production
     environment:
       - NODE_ENV=production
       - MONGO_USER=${MONGO_USER}
